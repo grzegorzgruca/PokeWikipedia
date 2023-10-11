@@ -1,0 +1,12 @@
+@font-face {
+  font-family: recoleta;
+  src: url(./fonts/Recoleta-RegularDEMO.otf) format("otf");
+}
+body {
+  font-family: "DM Sans", recoleta, sans-serif;
+  background: white;
+  margin: 0;
+}
+p {
+  margin: 0;
+}
