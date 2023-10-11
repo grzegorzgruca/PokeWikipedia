@@ -2,46 +2,28 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Editor from "./editor/editor";
-import NotFound from "./editor/404/notFound";
-
-function data() {
-  return { 2: 4 };
-}
+import ErrorPage from "./editor/errors/ErrorPage";
+import PokemonNamesData from "./editor/api/PokemonNamesData";
+import PokemonPageData from "./editor/pokemonData/PokemonPageData";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <Error />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "pokemon/:pokemonID",
-        element: <Contact />,
+        element: <PokemonPageData />,
       },
     ],
-    loader: data,
+    loader: PokemonNamesData,
   },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />;
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
-
-function Error() {
-  return (
-    <>
-      <p>ERROR 404 NIE DZIALA</p>
-    </>
-  );
-}
-function Contact() {
-  return (
-    <>
-      <p>PIKATCHU</p>
-    </>
-  );
-}
