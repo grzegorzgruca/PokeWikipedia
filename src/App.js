@@ -1,17 +1,9 @@
 import { Outlet, useLoaderData, useLocation } from "react-router-dom";
+import PokemonPageData from "./editor/mainPage/PokemonPageData";
 
 function App(params) {
   const data = useLoaderData();
-  console.log(useLocation());
-  return (
-    <>
-      <>
-        <p>strona główna</p>
-        <Outlet />
-        {useLocation().pathname}
-      </>
-    </>
-  );
+  return <PokemonPageData />;
 }
 
 export default App;

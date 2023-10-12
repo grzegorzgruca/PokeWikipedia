@@ -4,7 +4,7 @@ import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ErrorPage from "./editor/errors/ErrorPage";
 import PokemonNamesData from "./editor/api/PokemonNamesData";
-import PokemonPageData from "./editor/pokemonData/PokemonPageData";
+import PokemonPageData from "./editor/mainPage/PokemonPageData";
 
 const router = createBrowserRouter([
   {
