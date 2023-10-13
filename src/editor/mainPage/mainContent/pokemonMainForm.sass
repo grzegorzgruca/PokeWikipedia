@@ -1,0 +1,51 @@
+$paddingVertical: .6rem
+$paddingHorizontal: 1.2rem
+$formMargin: .5rem
+@use '../../__variables' as var
+
+.mainform
+    display: flex
+    flex-direction: column
+    align-items: center
+    justify-content: center
+    margin-top: 8.5rem
+    padding-bottom: 30rem
+    @include var.media($screenType: 3)
+        margin-top: 8rem
+    @include var.media($screenType: 4)
+        margin-top: 10rem
+    &__field
+        background-color: white
+        color: black
+        border-radius: 13px
+        border: none
+        padding: $paddingVertical $paddingHorizontal
+        margin-right: $formMargin
+        outline: none
+        @include var.media($screenType: 4)
+            width: 25rem
+            font-size: 1.2rem
+    &__submit-btn
+        border-radius: 13px
+        border: none
+        padding: $paddingVertical $paddingHorizontal
+        margin-left: $formMargin
+        transition: .5s
+        @include var.media($screenType: 4)
+            font-size: 1.2rem
+    &__submit-btn:hover
+        background-color: black
+        color: white
+
+    &__title
+        font-size: 2.5rem
+        margin-bottom: 0rem
+        @include var.media($screenType: 2)
+            font-size: 3.8rem
+        @include var.media($screenType: 4)
+            font-size: 7rem
+    &__desc
+        @include var.media($screenType: 2)
+            font-size: 1.22rem
+        @include var.media($screenType: 4)
+            font-size: 3rem

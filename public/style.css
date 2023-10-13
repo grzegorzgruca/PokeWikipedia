@@ -101,8 +101,78 @@
   background-size: cover;
 }
 
-.intro {
-  margin: 29rem 0;
+.mainform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8.5rem;
+  padding-bottom: 30rem;
+}
+@media (min-width: 1024px) {
+  .mainform {
+    margin-top: 8rem;
+  }
+}
+@media (min-width: 1680px) {
+  .mainform {
+    margin-top: 10rem;
+  }
+}
+.mainform__field {
+  background-color: white;
+  color: black;
+  border-radius: 13px;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  margin-right: 0.5rem;
+  outline: none;
+}
+@media (min-width: 1680px) {
+  .mainform__field {
+    width: 25rem;
+    font-size: 1.2rem;
+  }
+}
+.mainform__submit-btn {
+  border-radius: 13px;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  margin-left: 0.5rem;
+  transition: 0.5s;
+}
+@media (min-width: 1680px) {
+  .mainform__submit-btn {
+    font-size: 1.2rem;
+  }
+}
+.mainform__submit-btn:hover {
+  background-color: black;
+  color: white;
+}
+.mainform__title {
+  font-size: 2.5rem;
+  margin-bottom: 0rem;
+}
+@media (min-width: 767.98px) {
+  .mainform__title {
+    font-size: 3.8rem;
+  }
+}
+@media (min-width: 1680px) {
+  .mainform__title {
+    font-size: 7rem;
+  }
+}
+@media (min-width: 767.98px) {
+  .mainform__desc {
+    font-size: 1.22rem;
+  }
+}
+@media (min-width: 1680px) {
+  .mainform__desc {
+    font-size: 3rem;
+  }
 }
 
 body {
