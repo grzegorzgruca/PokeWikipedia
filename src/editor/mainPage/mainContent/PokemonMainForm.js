@@ -3,8 +3,8 @@ import { Formik, Form, Field } from "formik";
 function PokemonMainForm(params) {
   return (
     <article className="mainform">
-      <h1 className="mainform__title">Search Pokemon</h1>
-      <p className="mainform__desc">Search for new Pokemon Data</p>
+      <p className="mainform__title">Search Pokemon</p>
+      <h1 className="mainform__desc">Search for new Pokemon Data</h1>
       <Formik
         initialValues={{ name: "" }}
         onSubmit={(val) => {

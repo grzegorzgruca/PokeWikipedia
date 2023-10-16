@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import HeaderLinks from "./PokemonDataHeaderLinks";
 
 function PokemonDataHeader(params) {
-  let [isOpen, setIsOpen] = useState(false);
+  let [isOpen, setIsOpen] = useState(true);
   const ref = useRef();
   const handleBurger = (event, ref, setIsOpen, isOpen) => {
     setIsOpen(!isOpen);
@@ -10,17 +10,27 @@ function PokemonDataHeader(params) {
       ? ref.classList.add("header__menu--open")
       : ref.classList.remove("header__menu--open");
   };
-
+  const changeTheme = () => {
+    if (window.scrollY > 20) {
+      document
+        .getElementsByClassName("header")[0]
+        .setAttribute("style", "padding-bottom: .5rem; background-color: blue");
+    } else {
+      document
+        .getElementsByClassName("header")[0]
+        .setAttribute("style", "padding-bottom: 0rem; background-color: white");
+    }
+  };
+  useEffect(() => {
+    document.addEventListener("scroll", changeTheme);
+    return () => {
+      document.removeEventListener("scroll", changeTheme);
+    };
+  });
   return (
     <header className="header">
       <div className="header__left-side">
-        <img
-          className="header__logo"
-          alt="logo"
-          src="./pikatchu.png"
-          height="auto"
-          width="30px"
-        />
+        <img className="header__logo" alt="logo" src="./pikatchu.png" />
         <p>PokeWikipedia</p>
         <HeaderLinks
           handle={handleBurger}
