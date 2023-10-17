@@ -1,6 +1,7 @@
 .header {
   display: flex;
-  position: sticky;
+  width: 100%;
+  position: fixed;
   justify-content: space-between;
   font-size: 1.1rem;
   top: 0;
@@ -19,7 +20,7 @@
 .header__logo {
   margin: 0 1rem;
   height: auto;
-  width: 30px;
+  width: 40px;
 }
 .header__right-side {
   display: flex;
@@ -28,6 +29,7 @@
   margin: 1.2rem;
 }
 .header__right--pc {
+  color: white;
   display: none;
   gap: 2rem;
   justify-content: center;
@@ -53,7 +55,7 @@
 .header__burger-el {
   display: block;
   height: 1px;
-  background-color: black;
+  background-color: white;
 }
 .header__menu {
   display: flex;
@@ -76,7 +78,8 @@
   max-height: 100vh;
   gap: 2rem;
   top: 0rem;
-  background-color: blue;
+  background-color: white;
+  color: black;
   flex-direction: column;
   padding-left: 0;
   transition: 2s;
@@ -99,9 +102,14 @@
 .header__menu--open {
   left: 0;
 }
-.container {
-  background-color: grey;
-  background-size: cover;
+.background {
+  background-image: url("./resources/png/mainPage/bg.png");
+  background-size: revert;
+}
+@media (min-width: 1680px) {
+  .background {
+    background-size: cover;
+  }
 }
 
 .mainform {
@@ -109,18 +117,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 8.5rem;
+  padding-top: 15rem;
   padding-bottom: 20rem;
-}
-@media (min-width: 1024px) {
-  .mainform {
-    margin-top: 8rem;
-  }
-}
-@media (min-width: 1680px) {
-  .mainform {
-    margin-top: 10rem;
-  }
 }
 .mainform__field {
   background-color: white;
@@ -156,6 +154,7 @@
 .mainform__title {
   font-size: 2.5rem;
   margin-bottom: 0rem;
+  color: white;
 }
 @media (min-width: 767.98px) {
   .mainform__title {
@@ -169,6 +168,7 @@
 }
 .mainform__desc {
   font-size: 1rem;
+  color: white;
 }
 @media (min-width: 767.98px) {
   .mainform__desc {
@@ -192,7 +192,7 @@
 .iconSlide__img-container {
   border-radius: 100%;
   padding: 2rem;
-  background-color: blue;
+  background-color: #F0EBD8;
 }
 .iconSlide__img {
   width: 150px;
@@ -209,6 +209,7 @@
 }
 
 .iconSlides {
+  background-color: white;
   gap: 2rem;
 }
 .iconSlides__container {
@@ -222,8 +223,179 @@
   }
 }
 .iconSlides__title {
+  padding-top: 7rem;
   font-size: 2.7rem;
   text-align: center;
+}
+
+.billboard {
+  width: 100%;
+  color: white;
+  text-align: center;
+  padding: 4.7rem 0;
+  background-color: #1D2D44;
+}
+@media (min-width: 767.98px) {
+  .billboard {
+    padding: 9.5rem 0;
+  }
+}
+.billboard__title {
+  width: 80%;
+  font-size: 2rem;
+  margin: 0 auto;
+}
+@media (min-width: 767.98px) {
+  .billboard__title {
+    font-size: 2.5rem;
+  }
+}
+.billboard__desc {
+  padding-top: 1.2rem;
+  font-size: 1srem;
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+}
+@media (min-width: 767.98px) {
+  .billboard__desc {
+    font-size: 1.2rem;
+    width: 40%;
+  }
+}
+.billboard__icon {
+  height: auto;
+  width: 50px;
+  filter: invert(1);
+  margin-top: 4rem;
+  animation-name: pulse;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+@media (min-width: 767.98px) {
+  .billboard__icon {
+    width: 73px;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1) rotate(270deg);
+  }
+  50% {
+    transform: scale(1.27) rotate(270deg);
+  }
+  100% {
+    transform: scale(1) rotate(270deg);
+  }
+}
+.preview {
+  display: flex;
+  flex-direction: column;
+  gap: 6rem;
+  margin: 11rem auto;
+  margin-bottom: 7rem;
+}
+@media (min-width: 767.98px) {
+  .preview {
+    flex-direction: row;
+  }
+}
+.preview__img {
+  width: 100%;
+  min-width: 2rem;
+  height: 10rem;
+  display: block;
+  background-color: black;
+}
+@media (min-width: 767.98px) {
+  .preview__img {
+    flex: 1.2;
+  }
+}
+.preview__text-container {
+  flex: 1;
+}
+
+.askForm {
+  width: 100%;
+  color: white;
+  padding-top: 1.4rem;
+  border-radius: 13px;
+  background-color: #1D2D44;
+  margin-bottom: 10rem;
+}
+.askForm__title-text {
+  text-align: center;
+  font-size: 1.9rem;
+  margin-bottom: 0.9rem;
+}
+.askForm__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.askForm__email-body {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0.9rem auto 0 auto;
+  gap: 1rem;
+}
+.askForm__email {
+  outline: none;
+  border: none;
+  border-radius: 13px;
+  padding: 0.5rem 1rem;
+  width: 50%;
+}
+.askForm__email-wraper {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.askForm__title {
+  outline: none;
+  border: none;
+  border-radius: 13px;
+  padding: 0.5rem 1rem;
+  width: 50%;
+}
+.askForm__title-wraper {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.askForm__title-img {
+  height: 15px;
+  width: 15px;
+}
+.askForm__content {
+  outline: none;
+  border: none;
+  border-radius: 13px;
+  padding: 0.5rem 1rem;
+  width: 50%;
+  width: 80%;
+}
+.askForm__img-wraper {
+  background-color: white;
+  border-radius: 100%;
+  padding: 0.6rem 0.6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1rem;
+  height: 1rem;
+}
+.askForm__submit-btn {
+  border: none;
+  padding: 0.5rem 2rem;
+  background-color: white;
+  color: black;
+  border-radius: 19px;
+  margin: 1rem 0;
 }
 
 body {

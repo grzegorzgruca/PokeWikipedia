@@ -1,0 +1,19 @@
+@use '../../__variables' as var
+.preview
+    display: flex
+    flex-direction: column
+    gap: 6rem
+    @include var.media($screenType: 2)
+        flex-direction: row
+    margin: 11rem auto
+    margin-bottom: 7rem
+    &__img
+        width: 100%
+        min-width: 2rem
+        height: 10rem
+        display: block
+        background-color: black
+        @include var.media($screenType: 2)
+            flex: 1.2
+    &__text-container
+        flex: 1

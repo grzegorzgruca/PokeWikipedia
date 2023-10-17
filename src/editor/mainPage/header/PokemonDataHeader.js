@@ -14,11 +14,11 @@ function PokemonDataHeader(params) {
     if (window.scrollY > 20) {
       document
         .getElementsByClassName("header")[0]
-        .setAttribute("style", "padding-bottom: .5rem; background-color: blue");
+        .setAttribute("style", "background-color: #0D1321");
     } else {
       document
         .getElementsByClassName("header")[0]
-        .setAttribute("style", "padding-bottom: 0rem; background-color: white");
+        .setAttribute("style", "background-color: transparent");
     }
   };
   useEffect(() => {
@@ -30,7 +30,11 @@ function PokemonDataHeader(params) {
   return (
     <header className="header">
       <div className="header__left-side">
-        <img className="header__logo" alt="logo" src="./pikatchu.png" />
+        <img
+          className="header__logo"
+          alt="logo"
+          src=".\resources\png\mainPage\pikachu.png"
+        />
         <p>PokeWikipedia</p>
         <HeaderLinks
           handle={handleBurger}
@@ -40,6 +44,7 @@ function PokemonDataHeader(params) {
           reference={ref}
         />
       </div>
+
       <div className="header__right-side">
         <HeaderLinks
           handle={handleBurger}

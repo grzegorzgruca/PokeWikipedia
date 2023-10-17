@@ -3,7 +3,8 @@ $headerMargin: 1.2rem
 
 .header
     display: flex
-    position: sticky
+    width: 100%
+    position: fixed
     justify-content: space-between
     font-size: 1.1rem
     top: 0
@@ -19,7 +20,7 @@ $headerMargin: 1.2rem
     &__logo
         margin: 0 1rem
         height: auto
-        width:30px
+        width: 40px
 
 
     &__right-side
@@ -28,6 +29,7 @@ $headerMargin: 1.2rem
         align-items: center
         margin: $headerMargin
     &__right--pc
+        color: white
         display: none
         gap: 2rem
         justify-content: center
@@ -49,7 +51,7 @@ $headerMargin: 1.2rem
     &__burger-el
         display: block
         height: 1px
-        background-color: black
+        background-color: white
     &__burger-1
     &__burger-2
     &__burger-3
@@ -74,7 +76,8 @@ $headerMargin: 1.2rem
         max-height: 100vh
         gap: 2rem
         top: 0rem
-        background-color: blue
+        background-color: white
+        color: black
         flex-direction: column
         padding-left: 0
         transition: 2s
@@ -95,6 +98,8 @@ $headerMargin: 1.2rem
     &__menu-link
 
 
-.container
-    background-color: grey
-    background-size: cover
+.background
+    background-image: url('./resources/png/mainPage/bg.png')
+    background-size: revert
+    @include var.media($screenType: 4)
+        background-size: cover

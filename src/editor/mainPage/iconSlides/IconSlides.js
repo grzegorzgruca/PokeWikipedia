@@ -1,9 +1,9 @@
 import IconSlide from "./IconSlide";
 function IconSlides(props) {
   const imgSrc = {
-    attack: "./resources/png/slideCards/attackSlide.png",
-    abilities: "./resources/png/slideCards/sprites.png",
-    sprites: "./resources/png/slideCards/abilities.png",
+    attack: "./resources/png/mainPage/slideCards/attackSlide.png",
+    abilities: "./resources/png/mainPage/slideCards/sprites.png",
+    sprites: "./resources/png/mainPage/slideCards/abilities.png",
   };
   return (
     <article className="iconSlides">
