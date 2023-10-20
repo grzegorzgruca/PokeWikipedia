@@ -4,6 +4,8 @@ import IconSlides from "./iconSlides/IconSlides";
 import ChoiceBillboard from "./choiceBillboard/ChoiceBillboard";
 import Preview from "./preview/Preview";
 import AskForm from "./askForm/AskForm";
+import PokeApi from "./pokeAPI/PokeApi";
+import Footer from "./footer/Footer";
 
 function PokemonPageData(params) {
   return (
@@ -16,6 +18,8 @@ function PokemonPageData(params) {
       <ChoiceBillboard />
       <Preview />
       <AskForm />
+      <PokeApi />
+      <Footer />
     </div>
   );
 }
