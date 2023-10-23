@@ -1,9 +1,16 @@
 import { Outlet, useLoaderData, useLocation } from "react-router-dom";
-import PokemonPageData from "./editor/mainPage/PokemonPageData";
+import PokemonDataHeader from "./editor/globalComponents/header/PokemonDataHeader";
+import Footer from "./editor/globalComponents/footer/Footer";
+import { useEffect } from "react";
 
 function App(params) {
-  const data = useLoaderData();
-  return <PokemonPageData />;
+  return (
+    <>
+      <PokemonDataHeader />
+      <Outlet />
+      <Footer />
+    </>
+  );
 }
 
 export default App;

@@ -2,9 +2,9 @@ import PokemonMainForm from "./PokemonMainForm";
 
 function PokemonMain(params) {
   return (
-    <main className="main">
+    <article className="main">
       <PokemonMainForm />
-    </main>
+    </article>
   );
 }
 export default PokemonMain;

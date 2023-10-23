@@ -2,7 +2,7 @@ import { Formik, Form, Field } from "formik";
 
 function PokemonMainForm(params) {
   return (
-    <article id="search" className="mainform">
+    <div id="search" className="mainform">
       <p className="mainform__title">Search for Pokemon</p>
       <h1 className="mainform__desc">Discover new statistics</h1>
       <Formik
@@ -25,7 +25,7 @@ function PokemonMainForm(params) {
           </Form>
         )}
       </Formik>
-    </article>
+    </div>
   );
 }
 export default PokemonMainForm;

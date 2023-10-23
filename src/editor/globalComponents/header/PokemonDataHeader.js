@@ -1,9 +1,13 @@
 import { useEffect, useRef, useState } from "react";
 import HeaderLinks from "./PokemonDataHeaderLinks";
+import { useLocation, useRouteLoaderData, Link } from "react-router-dom";
 
-function PokemonDataHeader(params) {
+function PokemonDataHeader(props) {
   let [isOpen, setIsOpen] = useState(true);
   const ref = useRef();
+  const data = useRouteLoaderData("root");
+  const location = useLocation();
+
   const handleBurger = (event, ref, setIsOpen, isOpen) => {
     setIsOpen(!isOpen);
     isOpen
@@ -11,14 +15,31 @@ function PokemonDataHeader(params) {
       : ref.classList.remove("header__menu--open");
   };
   const changeTheme = () => {
+    setTheme();
+  };
+  const setTheme = () => {
     if (window.scrollY > 20) {
       document
         .getElementsByClassName("header")[0]
-        .setAttribute("style", "background-color: #0D1321");
+        .setAttribute(
+          "style",
+          `background-color: ${
+            location.pathname === "/"
+              ? data.mainColor.changed
+              : data.pokemonColor.changed
+          }`
+        );
     } else {
       document
         .getElementsByClassName("header")[0]
-        .setAttribute("style", "background-color: transparent");
+        .setAttribute(
+          "style",
+          `background-color: ${
+            location.pathname === "/"
+              ? data.mainColor.main
+              : data.pokemonColor.main
+          }`
+        );
     }
   };
   useEffect(() => {
@@ -27,6 +48,11 @@ function PokemonDataHeader(params) {
       document.removeEventListener("scroll", changeTheme);
     };
   });
+  useEffect(() => {
+    console.log("ffd");
+    setTheme();
+  }, [setTheme]);
+
   return (
     <header className="header">
       <div className="header__left-side">
@@ -35,7 +61,9 @@ function PokemonDataHeader(params) {
           alt="logo"
           src=".\resources\png\mainPage\pikachu.png"
         />
-        <p>PokeWikipedia</p>
+        <Link className="header__logo-link" to="/">
+          <p>PokeWikipedia</p>
+        </Link>
         <HeaderLinks
           handle={handleBurger}
           setIsOpen={setIsOpen}
