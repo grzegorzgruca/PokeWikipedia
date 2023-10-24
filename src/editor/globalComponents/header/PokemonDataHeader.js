@@ -49,7 +49,6 @@ function PokemonDataHeader(props) {
     };
   });
   useEffect(() => {
-    console.log("ffd");
     setTheme();
   }, [setTheme]);
 

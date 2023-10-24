@@ -1,0 +1,35 @@
+@use '../../__variables' as var
+@use '../../colors' as col
+
+.shortenedInfo
+    display: flex
+    flex-direction: column
+    margin-top: 8rem
+    margin-bottom: 5rem
+    &__img
+        display: block
+        width: 90%
+        height: auto
+        order: 1
+        margin: 0 auto
+        background-color: transparent
+    &__basic
+        width: 80%
+        margin: 0 auto
+    &__basic-title
+        font-size: 2.8rem
+        margin: .5rem 0
+    &__basic-type-container
+        display: flex
+        align-items: center
+        gap: 1rem
+        margin-bottom: 3.7rem
+    &__basic-type
+        font-weight: bold
+        font-size: 1.4rem
+    &__basic-type-icon
+        height: auto
+        width: 50px
+
+.mainInfo
+    &__text
