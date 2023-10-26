@@ -1,10 +1,5 @@
 function StatsTable(props) {
-  let { textData, pokemonData } = props.data;
-  let artImg = pokemonData.sprites.other["official-artwork"]["front_default"];
-  let type = pokemonData.types[0].type.name;
-  let typeSrc = `./resources/png/pokemonPage/icons/${type}.svg`;
-  let color = textData.color.name;
-  console.log(pokemonData);
+  let { pokemonData } = props.data;
   function capitalFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
@@ -16,8 +11,8 @@ function StatsTable(props) {
             <td className="statsTable__head-cell">
               <p>Type</p>
             </td>
-            <td>
-              <p>Number</p>
+            <td className="statsTable__head-cell">
+              <p>Value</p>
             </td>
           </tr>
         </thead>

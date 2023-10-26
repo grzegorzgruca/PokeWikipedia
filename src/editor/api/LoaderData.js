@@ -5,7 +5,7 @@ function LoaderData(params) {
       changed: "#0D1321",
     },
     pokemonColor: {
-      main: "#001441",
+      main: "#030918",
       changed: "#050e23",
     },
   };

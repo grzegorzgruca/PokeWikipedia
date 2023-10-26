@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import setFirstCapital from "../globalFunctions/setFirstCapital";
 
 const HeaderLinks = (props) => {
   const [open, setOpen] = useState([false, false, false, false]);
@@ -98,20 +99,45 @@ const HeaderLinks = (props) => {
         <div ref={props.reference} className="header__menu-container">
           <ul className="header__links-elements header__menu">
             <li className="header__menu-link">
-              <PhoneLinks number={0} setOpen={setOpen} open={open} />
+              <PhoneLinks
+                links={["pikachu", "bulbasaur", "charmander", "squirtle"]}
+                number={0}
+                setOpen={setOpen}
+                open={open}
+              />
+            </li>
+            {/* <li className="header__menu-link">
+              <PhoneLinks
+                links="pidgeotto"
+                number={1}
+                setOpen={setOpen}
+                open={open}
+              />
             </li>
             <li className="header__menu-link">
-              <PhoneLinks number={1} setOpen={setOpen} open={open} />
+              <PhoneLinks
+                links="bulbasaur"
+                number={2}
+                setOpen={setOpen}
+                open={open}
+              />
             </li>
             <li className="header__menu-link">
-              <PhoneLinks number={2} setOpen={setOpen} open={open} />
+              <PhoneLinks
+                links="bulbasaur"
+                number={3}
+                setOpen={setOpen}
+                open={open}
+              />
             </li>
             <li className="header__menu-link">
-              <PhoneLinks number={3} setOpen={setOpen} open={open} />
-            </li>
-            <li className="header__menu-link">
-              <PhoneLinks number={4} setOpen={setOpen} open={open} />
-            </li>
+              <PhoneLinks
+                links="charizard"
+                number={4}
+                setOpen={setOpen}
+                open={open}
+              />
+            </li> */}
           </ul>
           <button
             type="button"
@@ -137,6 +163,7 @@ function PhoneLinks(props) {
   let openArray = new Array(3);
   openArray = openArray.fill(false);
   openArray[props.number] = true;
+  console.log(props.links);
   return (
     <>
       <section className="header__menu-section-container">
@@ -150,30 +177,17 @@ function PhoneLinks(props) {
         </div>
         {props.open[props.number] ? (
           <>
-            <Link
-              className="header__menu-link-component"
-              to={`pokemon/pikatchu`}
-            >
-              Pikatchu
-            </Link>
-            <Link
-              className="header__menu-link-component"
-              to={`pokemon/pikatchu`}
-            >
-              Pikatchu
-            </Link>
-            <Link
-              className="header__menu-link-component"
-              to={`pokemon/pikatchu`}
-            >
-              Pikatchu
-            </Link>
-            <Link
-              className="header__menu-link-component"
-              to={`pokemon/pikatchu`}
-            >
-              Pikatchu
-            </Link>
+            {props.links.map((e, index) => {
+              return (
+                <Link
+                  key={index}
+                  className="header__menu-link-component"
+                  to={`pokemon/${props.links[index]}`}
+                >
+                  {setFirstCapital(props.links[index])}
+                </Link>
+              );
+            })}
           </>
         ) : (
           <></>

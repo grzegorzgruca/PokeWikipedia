@@ -3,20 +3,25 @@ import MainInfo from "./shortenedInfo/MainInfo";
 import LoadingData from "./loadingData/LoadingData";
 import pokeApiFetch from "../api/PokeApiFetch";
 import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import StatsTable from "./statsTable/StatsTable";
 
 function PokemonDataPage(props) {
   const [data, setData] = useState();
+  const location = useLocation();
+  let pokemonPath =
+    location.pathname.split("/")[location.pathname.split("/").length - 1];
+
   useEffect(() => {
     Promise.all([
-      pokeApiFetch("pikachu", "textData"),
-      pokeApiFetch("pikachu", "pokemonData"),
+      pokeApiFetch(pokemonPath, "textData"),
+      pokeApiFetch(pokemonPath, "pokemonData"),
     ]).then((res) => setData({ textData: res[0], pokemonData: res[1] }));
-  }, []);
+  }, [location]);
 
   return (
     <>
-      <main>
+      <main className="main__pokemon">
         {!data ? (
           <LoadingData />
         ) : (

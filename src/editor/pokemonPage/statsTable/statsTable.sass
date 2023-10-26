@@ -1,20 +1,31 @@
 @use '../../colors' as col
+@use '../../__variables' as var
 
 .statsTable
     color: white
-    margin: 2rem auto
+    margin: 4rem auto
+    margin-top: 4rem
     border-radius: 14px
+    border-style: hidden
     border-collapse: collapse
+    overflow: hidden
+    @include var.media($screenType: 3)
+        order: 3
+        margin: 0 auto
+        width: 80%
     &-container
 
-
+    tr td
+        padding: 1rem 2rem
+    tr .statsTable__head-cell
+        padding: .5rem 2rem
     &__head
-        background: col.$blueDarkest
+        background-color: col.$blueDarker
     &__head-cell
 
-
     &__body
-        background: col.$blueDarker
+        background: col.$blueDarkest
+        padding: 1rem .2rem
     &__row
     &__cell
 

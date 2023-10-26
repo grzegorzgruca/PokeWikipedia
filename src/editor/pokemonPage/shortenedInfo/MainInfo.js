@@ -2,10 +2,7 @@ import { distance } from "fastest-levenshtein";
 
 function MainInfo(props) {
   let { textData, pokemonData } = props.data;
-  let artImg = pokemonData.sprites.other["official-artwork"]["front_default"];
   let type = pokemonData.types[0].type.name;
-  let typeSrc = `./resources/png/pokemonPage/icons/${type}.svg`;
-  let color = textData.color.name;
 
   function filterArrayBySimilars(arr1, arr2) {
     for (let x = 0; x < arr1.length; x++) {
@@ -24,8 +21,7 @@ function MainInfo(props) {
         {textData.flavor_text_entries.slice(0, 40).map((el, index) => {
           if (
             el.language.name === "en" &&
-            el.flavor_text !==
-              textData.flavor_text_entries[index + 1].flavor_text
+            el.flavor_text !== textData.flavor_text_entries[0].flavor_text
           ) {
             let isSimilar = filterArrayBySimilars(
               textData.flavor_text_entries.slice(0, 40),
