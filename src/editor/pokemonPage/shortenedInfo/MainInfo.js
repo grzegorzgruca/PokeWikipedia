@@ -1,33 +1,46 @@
+import { distance } from "fastest-levenshtein";
+
 function MainInfo(props) {
   let { textData, pokemonData } = props.data;
   let artImg = pokemonData.sprites.other["official-artwork"]["front_default"];
   let type = pokemonData.types[0].type.name;
   let typeSrc = `./resources/png/pokemonPage/icons/${type}.svg`;
   let color = textData.color.name;
-  console.log(textData);
+
+  function filterArrayBySimilars(arr1, arr2) {
+    for (let x = 0; x < arr1.length; x++) {
+      let distanceIndex = distance(arr1[x].flavor_text, arr2.flavor_text);
+      if (distanceIndex < 95) {
+        return false;
+      }
+      return true;
+    }
+  }
+
   return (
     <article className="mainInfo">
-      <div className="shortenedInfo__basic-text">
+      <div className="mainInfo__container">
+        <h2 className="mainInfo__title">Pokedex Descriptions</h2>
         {textData.flavor_text_entries.slice(0, 40).map((el, index) => {
           if (
             el.language.name === "en" &&
             el.flavor_text !==
               textData.flavor_text_entries[index + 1].flavor_text
           ) {
+            let isSimilar = filterArrayBySimilars(
+              textData.flavor_text_entries.slice(0, 40),
+              el
+            );
             return (
-              <span className="">{el.flavor_text.replace(/\x0C/g, " ")}</span>
+              isSimilar && (
+                <span key={index} className="mainInfo__text">
+                  {/\.\s/.test(el.flavor_text)
+                    ? el.flavor_text.replace(/\x0C/g, " ")
+                    : el.flavor_text.replace(/\x0C/g, " ").replace(/\./g, ". ")}
+                </span>
+              )
             );
           }
-        })}
-      </div>
-      <div className="shortenedInfo__basic-text">
-        {pokemonData.stats.map((el, index) => {
-          return (
-            <>
-              <p>Type: {el.stat.name}</p>
-              <p>Number: {el.base_stat}</p>
-            </>
-          );
         })}
       </div>
     </article>

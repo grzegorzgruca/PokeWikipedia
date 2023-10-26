@@ -740,6 +740,28 @@
   width: 50px;
 }
 
+.mainInfo__container {
+  width: 80%;
+  margin: 0 auto;
+  font-size: 1.2rem;
+}
+.mainInfo__text {
+  margin: 1rem 0;
+  display: block;
+}
+
+.statsTable {
+  color: white;
+  margin: 2rem auto;
+  border-radius: 14px;
+  border-collapse: collapse;
+}
+.statsTable__head {
+  background: #0D1321;
+}
+.statsTable__body {
+  background: #1D2D44;
+}
 body {
   margin: 0;
   font-family: "DM Sans";
