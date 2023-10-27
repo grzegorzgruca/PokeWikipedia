@@ -17,7 +17,7 @@ function PokemonDataPage(props) {
       pokeApiFetch(pokemonPath, "textData"),
       pokeApiFetch(pokemonPath, "pokemonData"),
     ]).then((res) => setData({ textData: res[0], pokemonData: res[1] }));
-  }, [location]);
+  }, [location, pokemonPath]);
 
   return (
     <>

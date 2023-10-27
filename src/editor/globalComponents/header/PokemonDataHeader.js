@@ -9,6 +9,7 @@ function PokemonDataHeader(props) {
   const location = useLocation();
 
   const handleBurger = (event, ref, setIsOpen, isOpen) => {
+    console.log(ref);
     setIsOpen(!isOpen);
     isOpen
       ? ref.classList.add("header__menu--open")
@@ -51,7 +52,6 @@ function PokemonDataHeader(props) {
   useEffect(() => {
     setTheme();
   }, [setTheme]);
-
   return (
     <header className="header">
       <div className="header__left-side">
@@ -72,12 +72,13 @@ function PokemonDataHeader(props) {
         />
       </div>
 
-      <div className="header__right-side">
+      <nav className="header__right-side">
         <HeaderLinks
           handle={handleBurger}
           setIsOpen={setIsOpen}
           isOpen={isOpen}
           isPc={true}
+          reference={ref}
         />
         <div
           onClick={(e) => {
@@ -89,7 +90,7 @@ function PokemonDataHeader(props) {
           <span className="header__burder-2 header__burger-el" />
           <span className="header__burder-3 header__burger-el" />
         </div>
-      </div>
+      </nav>
     </header>
   );
 }

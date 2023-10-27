@@ -4,140 +4,77 @@ import setFirstCapital from "../globalFunctions/setFirstCapital";
 
 const HeaderLinks = (props) => {
   const [open, setOpen] = useState([false, false, false, false]);
+  const pokemonData = [
+    {
+      category: "Kanto",
+      links: ["ivysaur", "venusaur", "charmander", "charmeleon", "charizard"],
+    },
+    {
+      category: "Hoenn",
+      links: ["treecko", "grovyle", "sceptile", "torchic", "combusken"],
+    },
+    {
+      category: "Johto",
+      links: ["chikorita", "bayleef", "meganium", "cyndaquil", "quilava"],
+    },
+    {
+      category: "Sinnoh",
+      links: ["turtwig", "grotle", "torterra", "chimchar"],
+    },
+    {
+      category: "Unova",
+      links: ["snivy", "servine", "serperior", "tepig", "pignite"],
+    },
+  ];
 
   return (
     <>
       {props.isPc ? (
         <ul className="header__links-elements header__right--pc">
-          <li className="header__right-link-container">
-            <div className="header__right-link">Starting Pokemons</div>
-            <section className="header__right-list">
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-            </section>
-          </li>
-          <li className="header__right-link-container">
-            <div className="header__right-link">Most Popular</div>
-            <section className="header__right-list">
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-            </section>
-          </li>
-          <li className="header__right-link-container">
-            <div className="header__right-link">Legendaries</div>
-            <section className="header__right-list">
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-            </section>{" "}
-          </li>
-          <li className="header__right-link-container">
-            <div className="header__right-link">Starting Pokemons</div>
-            <section className="header__right-list">
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-            </section>
-          </li>
-          <li className="header__right-link-container">
-            <div className="header__right-link">Starting Pokemons</div>
-            <section className="header__right-list header__right-list-last">
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-              <Link className="header__right-list-link" to={`pokemon/pikatchu`}>
-                Pikatchu
-              </Link>
-            </section>
-          </li>
+          {pokemonData.map((e, indexCategory) => {
+            let last;
+            if (indexCategory === pokemonData.length - 1) {
+              last = "header__right-list-last";
+            }
+            return (
+              <li key={indexCategory} className="header__right-link-container">
+                <div className="header__right-link">{e.category}</div>
+                <section className={`header__right-list ${last}`}>
+                  {pokemonData[indexCategory].links.map((el, index) => {
+                    return (
+                      <Link
+                        key={index}
+                        className={`header__right-list-link`}
+                        to={`pokemon/${el}`}
+                      >
+                        {setFirstCapital(el)}
+                      </Link>
+                    );
+                  })}
+                </section>
+              </li>
+            );
+          })}
         </ul>
       ) : (
         <div ref={props.reference} className="header__menu-container">
           <ul className="header__links-elements header__menu">
-            <li className="header__menu-link">
-              <PhoneLinks
-                links={["pikachu", "bulbasaur", "charmander", "squirtle"]}
-                number={0}
-                setOpen={setOpen}
-                open={open}
-              />
-            </li>
-            {/* <li className="header__menu-link">
-              <PhoneLinks
-                links="pidgeotto"
-                number={1}
-                setOpen={setOpen}
-                open={open}
-              />
-            </li>
-            <li className="header__menu-link">
-              <PhoneLinks
-                links="bulbasaur"
-                number={2}
-                setOpen={setOpen}
-                open={open}
-              />
-            </li>
-            <li className="header__menu-link">
-              <PhoneLinks
-                links="bulbasaur"
-                number={3}
-                setOpen={setOpen}
-                open={open}
-              />
-            </li>
-            <li className="header__menu-link">
-              <PhoneLinks
-                links="charizard"
-                number={4}
-                setOpen={setOpen}
-                open={open}
-              />
-            </li> */}
+            {pokemonData.map((el, index) => {
+              return (
+                <PhoneLinks
+                  handle={props.handle}
+                  setIsOpen={props.setIsOpen}
+                  isOpen={props.isOpen}
+                  reference={props.reference}
+                  key={index}
+                  links={el.links}
+                  number={index}
+                  setOpen={setOpen}
+                  open={open}
+                  category={el.category}
+                />
+              );
+            })}
           </ul>
           <button
             type="button"
@@ -163,7 +100,6 @@ function PhoneLinks(props) {
   let openArray = new Array(3);
   openArray = openArray.fill(false);
   openArray[props.number] = true;
-  console.log(props.links);
   return (
     <>
       <section className="header__menu-section-container">
@@ -173,19 +109,33 @@ function PhoneLinks(props) {
           }}
           className="header__menu-title-container"
         >
-          <p className="header__menu-upper">Starting Pokemons</p>
+          <p className="header__menu-upper">{props.category}</p>
         </div>
         {props.open[props.number] ? (
           <>
             {props.links.map((e, index) => {
               return (
-                <Link
+                <li
+                  onClick={() => {
+                    props.setOpen([0, 0, 0, 0]);
+                    props.handle(
+                      e,
+                      props.reference.current,
+                      props.setIsOpen,
+                      props.isOpen
+                    );
+                  }}
                   key={index}
-                  className="header__menu-link-component"
-                  to={`pokemon/${props.links[index]}`}
+                  className="header__menu-link-container"
                 >
-                  {setFirstCapital(props.links[index])}
-                </Link>
+                  <Link
+                    key={index}
+                    className="header__menu-link-component"
+                    to={`pokemon/${props.links[index]}`}
+                  >
+                    {setFirstCapital(props.links[index])}
+                  </Link>
+                </li>
               );
             })}
           </>
