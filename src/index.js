@@ -2,8 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import ErrorPage from "./editor/errors/ErrorPage";
-import LoaderData from "./editor/api/LoaderData";
+import ErrorPage from "./editor/globalComponents/errors/ErrorPage";
+import LoaderData from "./editor/globalComponents/api/LoaderData";
 import PokemonPage from "./editor/pokemonPage/PokemonPage";
 import PokemonPageData from "./editor/mainPage/PokemonPageData";
 

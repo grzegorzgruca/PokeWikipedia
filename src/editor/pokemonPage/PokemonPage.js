@@ -1,7 +1,7 @@
 import ShortenedInfo from "./shortenedInfo/ShortenedInfo";
 import MainInfo from "./shortenedInfo/MainInfo";
 import LoadingData from "./loadingData/LoadingData";
-import pokeApiFetch from "../api/PokeApiFetch";
+import pokeApiFetch from "../globalComponents/api/PokeApiFetch";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import StatsTable from "./statsTable/StatsTable";
