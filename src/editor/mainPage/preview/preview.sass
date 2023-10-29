@@ -4,7 +4,7 @@
     flex-direction: column
     width: 90%
     margin: 4rem auto
-    @include var.media($screenType: 2)
+    @include var.media($screenType: 3)
         flex-direction: row
         margin: 7rem auto
     @include var.media($screenType: 4)
@@ -14,8 +14,9 @@
         min-width: 2rem
         height: auto
         display: block
-        max-width: 45rem
-        @include var.media($screenType: 2)
+        max-width: 45rem    
+        margin: 0 auto
+        @include var.media($screenType: 3)
             width: 10rem
             flex: 1.2
 

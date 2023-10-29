@@ -21,7 +21,7 @@ function IconSlides(props) {
         />
         <IconSlide
           title="Sprites"
-          desc="Gallery of sprites from different game versions"
+          desc="Gallery of splasharts for every Pokémon"
           imgSrc={imgSrc.sprites}
         />
       </div>

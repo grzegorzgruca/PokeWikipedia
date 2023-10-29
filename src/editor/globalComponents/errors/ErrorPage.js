@@ -1,8 +1,14 @@
-function ErrorPage(params) {
+import { Link } from "react-router-dom";
+
+function ErrorPage(props) {
   return (
-    <>
-      <p>Error 404 - not found</p>
-    </>
+    <div className="errorPage">
+      <span className="errorPage__text">ERROR 404</span>
+      <span className="errorPage__text">Not found</span>
+      <Link className="errorPage__btn" to="/">
+        Return to Home Page
+      </Link>
+    </div>
   );
 }
 

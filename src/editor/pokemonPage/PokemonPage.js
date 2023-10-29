@@ -1,10 +1,10 @@
 import ShortenedInfo from "./shortenedInfo/ShortenedInfo";
 import MainInfo from "./shortenedInfo/MainInfo";
-import LoadingData from "./loadingData/LoadingData";
 import pokeApiFetch from "../globalComponents/api/PokeApiFetch";
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import StatsTable from "./statsTable/StatsTable";
+import LoadingPage from "./LoadingPage";
 
 function PokemonDataPage(props) {
   const [data, setData] = useState();
@@ -23,7 +23,7 @@ function PokemonDataPage(props) {
     <>
       <main className="main__pokemon">
         {!data ? (
-          <LoadingData />
+          <LoadingPage />
         ) : (
           <>
             <ShortenedInfo data={data} />

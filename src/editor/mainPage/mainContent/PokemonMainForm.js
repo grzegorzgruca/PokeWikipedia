@@ -38,7 +38,7 @@ function PokemonMainForm(props) {
         validate={(e) => validateForm(e)}
         validateOnChange={false}
       >
-        {({ isSubmitting }) => (
+        {({ isSubmitting, errors }) => (
           <Form className="form">
             <Field
               placeholder="Enter the name of Pokemon"
@@ -46,7 +46,11 @@ function PokemonMainForm(props) {
               type="text"
               name="name"
             />
-            {/* <ErrorMessage name="name" component={<div>NO ELo</div>} /> */}
+            <ErrorMessage
+              name="name"
+              component={() => <ValidationError errors={errors} />}
+            />
+
             <button
               disabled={isSubmitting}
               className="mainform__submit-btn"
@@ -57,6 +61,13 @@ function PokemonMainForm(props) {
           </Form>
         )}
       </Formik>
+    </div>
+  );
+}
+function ValidationError(props) {
+  return (
+    <div className="valiationError">
+      <span className="valiationError__text">{props.errors.name}</span>
     </div>
   );
 }

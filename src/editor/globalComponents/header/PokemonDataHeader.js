@@ -57,8 +57,8 @@ function PokemonDataHeader(props) {
       <div className="header__left-side">
         <img
           className="header__logo"
-          alt="logo"
-          src=".\resources\png\mainPage\pikachu.png"
+          alt="logo - img atributions: Roundicons Freebies, deemakdaksina, freepik"
+          src=".\resources\png\mainPage\pokeball.png"
         />
         <Link className="header__logo-link" to="/">
           <p>PokeWikipedia</p>

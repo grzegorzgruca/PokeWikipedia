@@ -7,14 +7,14 @@ function Preview(params) {
         className="preview__img"
       ></img>
       <section className="preview__text-container">
-        <h2 className="preview__title">Disover every pokemon!</h2>
+        <h2 className="preview__title">Find every pokemon!</h2>
         <p className="preview__description">
-          Nisi sit minim culpa enim commodo do. Consequat labore voluptate
-          excepteur amet quis. Laborum dolor occaecat magna anim dolore enim eu
-          nostrud id occaecat cupidatat qui aliqua. Ut irure est esse qui velit
-          culpa ullamco mollit eiusmod proident sunt cupidatat in ut. Sunt culpa
-          cupidatat ad officia laboris id occaecat occaecat consequat ea
-          proident et consequat.
+          Our website serves as your ideal companion in your Pokémon journey. We
+          understand that knowledge is power, and that's why we've harnessed the
+          power of PokeAPI to offer you the most up-to-date and reliable data on
+          all Pokémon species. With a vast database at your fingertips, you can
+          search for any Pokémon by name and instantly access details about
+          their abilities, stats and more.
         </p>
       </section>
     </article>
